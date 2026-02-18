@@ -1,0 +1,3 @@
+https://www.easeout.co/images/uploads/dom-tree.png
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+https://wslisam.medium.com/beyond-jquery-why-modern-frontend-frameworks-like-react-angular-and-vue-are-essential-81300d0ab3c3
