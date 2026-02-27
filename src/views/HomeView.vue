@@ -4,6 +4,8 @@ import GridArea from '@/components/GridArea.vue'
 import GridTile from '@/components/GridTile.vue'
 import SwitchContainer from '@/components/SwitchContainer.vue'
 import CodeBlock from '@/components/CodeBlock.vue'
+import PaperBackground from '@/components/PaperBackground.vue'
+import PinnedCard from '@/components/PinnedCard.vue'
 
 const debug = ref<boolean>(false)
 
@@ -26,11 +28,11 @@ const switchContainerRef = useTemplateRef('switchContainerRef')
       :show-display="true"
       class="bg-red-500"
     >
-      <SwitchContainer class="size-full bg-blue-400" ref="switchContainerRef">
-        <div>TEST1</div>
-        <CodeBlock :code="'cosnt a = 1;'" class="size-full"></CodeBlock>
-        <div>TEST3</div>
-      </SwitchContainer>
+      <PaperBackground class="size-full">
+        <h3>Test</h3>
+        <p>Hello</p>
+        <p>Hello2</p>
+      </PaperBackground>
     </GridTile>
   </GridArea>
 </template>

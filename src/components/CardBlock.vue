@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import PaperClip from '@/assets/svg/PaperClip.vue'
+import PaperBackground from './PaperBackground.vue';
+import PinnedCard from './PinnedCard.vue';
+import GridArea from './GridArea.vue';
+import GridTile from '@/components/GridTile.vue'
 
 const { title } = defineProps<{
   title: string
@@ -7,15 +11,65 @@ const { title } = defineProps<{
 </script>
 
 <template>
-  <div
-    class="size-full relative shadow-2xl p-1 bg-highlight1 bg-[url(./../assets/images/HorizontalLines.png)]"
-  >
-    <h2
-      class="absolute -top-8 left-5 bg-highlight1 font-bold py-1 px-10"
-      style="clip-path: polygon(10% 0, 84% 0, 100% 100%, 0% 100%)"
+  <GridArea :columns="12" :rows="8" :show-helper-tiles="false" class="size-full">
+    <GridTile
+      :corner-top-left="{
+        x: 1,
+        y: 1,
+      }"
+      :corner-bottom-right="{
+        x: 12,
+        y: 8,
+      }"
+      :show-display="true"
     >
-      {{ title }}
-    </h2>
-    <slot></slot>
-  </div>
+      <PaperBackground class="size-full">
+        <slot></slot>
+      </PaperBackground>
+    </GridTile>
+    <GridTile
+      :corner-top-left="{
+        x: 1,
+        y: 1,
+      }"
+      :corner-bottom-right="{
+        x: 10,
+        y: 2,
+      }"
+      :show-display="true"
+      class="z-1 p-1"
+    >
+      <slot name="top"></slot>
+    </GridTile>
+    <GridTile
+      :corner-top-left="{
+        x: 1,
+        y: 3,
+      }"
+      :corner-bottom-right="{
+        x: 12,
+        y: 8,
+      }"
+      :show-display="true"
+      class="z-1 p-1"
+    >
+      <slot name="bottom"></slot>
+    </GridTile>
+    <GridTile
+      :corner-top-left="{
+        x: 10,
+        y: 1,
+      }"
+      :corner-bottom-right="{
+        x: 12,
+        y: 2,
+      }"
+      :show-display="true"
+      class="z-2"
+    >
+      <div class="relative size-full">
+        <PinnedCard class="size-full absolute -right-10 -top-10" :content="title"></PinnedCard>
+      </div>
+    </GridTile>
+  </GridArea>
 </template>
