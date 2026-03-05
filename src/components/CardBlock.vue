@@ -5,13 +5,14 @@ import PinnedCard from './PinnedCard.vue';
 import GridArea from './GridArea.vue';
 import GridTile from '@/components/GridTile.vue'
 
-const { title } = defineProps<{
-  title: string
+const { title, debug } = defineProps<{
+  title: string,
+  debug?: boolean
 }>()
 </script>
 
 <template>
-  <GridArea :columns="12" :rows="8" :show-helper-tiles="false" class="size-full">
+  <GridArea :columns="12" :rows="8" :show-helper-tiles="debug" class="size-full">
     <GridTile
       :corner-top-left="{
         x: 1,

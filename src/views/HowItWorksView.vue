@@ -9,7 +9,6 @@ import CardBlock from '@/components/CardBlock.vue'
 import CSSHouse from '@/assets/svg/CSSHouse.vue'
 import HTMLHouse from '@/assets/svg/HTMLHouse.vue'
 import JavascriptHouse from '@/assets/svg/JavascriptHouse.vue'
-import CodeBlock from '@/components/CodeBlock.vue'
 const config = useConfigStore()
 const presentation = usePresentationStore()
 
@@ -38,17 +37,20 @@ watch(
   <GridArea :columns="12" :rows="8" :show-helper-tiles="config.debug">
     <GridTile
       :corner-top-left="{
-        x: 4,
+        x: 3,
         y: 2,
       }"
       :corner-bottom-right="{
-        x: 9,
+        x: 10,
         y: 7,
       }"
       :show-display="true"
     >
       <SwitchContainer ref="switchContainerRef" :duration-time="1000">
-        <CardBlock title="Was ist HTML?">
+        <CardBlock title="Herkömmliche Fronted Entwicklung">
+          <h3>Wie funktioniert das webbasierte Frontend?</h3>
+        </CardBlock>
+        <CardBlock title="Was ist HTML?" :debug="config.debug">
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <HTMLHouse></HTMLHouse>
@@ -66,7 +68,7 @@ watch(
             </div>
           </template>
         </CardBlock>
-        <CardBlock title="Was ist CSS?">
+        <CardBlock title="Was ist CSS?" :debug="config.debug">
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <CSSHouse></CSSHouse>
@@ -86,7 +88,7 @@ watch(
             </div>
           </template>
         </CardBlock>
-        <CardBlock title="Was ist Javascript?">
+        <CardBlock title="Was ist Javascript?" :debug="config.debug">
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <JavascriptHouse class="h-full"></JavascriptHouse>
@@ -112,10 +114,10 @@ watch(
             </div>
           </template>
         </CardBlock>
-        <CardBlock title="Was ist der DOM?">
+        <CardBlock title="Was ist der DOM?" :debug="config.debug">
           <template v-slot:bottom>
             <div class="size-full flex justify-center items-center">
-              <img src="./../assets/images/dom-tree.png" alt="dom-tree" />
+              <img class="size-full" src="./../assets/images/dom-tree.png" alt="dom-tree" />
             </div>
           </template>
         </CardBlock>

@@ -2,3 +2,9 @@ https://www.easeout.co/images/uploads/dom-tree.png
 https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 https://wslisam.medium.com/beyond-jquery-why-modern-frontend-frameworks-like-react-angular-and-vue-are-essential-81300d0ab3c3
 https://freefrontend.com/css-paper-effects/
+
+https://www.atipik.ch/en/blog/reactive-programming-web-frameworks
+https://vuejs.org/guide/extras/reactivity-in-depth
+https://vuejs.org/guide/extras/rendering-mechanism
+https://www.infoworld.com/article/2335507/reactive-javascript-the-evolution-of-front-end-architecture.html
+https://www.freecodecamp.org/news/reusable-html-components-how-to-reuse-a-header-and-footer-on-a-website/
