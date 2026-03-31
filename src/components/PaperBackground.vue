@@ -47,7 +47,7 @@ import PinnedCard from './PinnedCard.vue';
 
 :slotted(p) {
     margin: 0;
-    font-size: 13px;
+    font-size: 18px;
     font-family: 'Mako', serif;
     text-align: justify;
 }

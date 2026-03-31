@@ -9,12 +9,19 @@ import CardBlock from '@/components/CardBlock.vue'
 import CSSHouse from '@/assets/svg/CSSHouse.vue'
 import HTMLHouse from '@/assets/svg/HTMLHouse.vue'
 import JavascriptHouse from '@/assets/svg/JavascriptHouse.vue'
+import AnimatedTextBlock from '@/components/AnimatedTextBlock.vue'
+import ImageWithRef from '@/components/ImageWithRef.vue'
+
+
 const config = useConfigStore()
 const presentation = usePresentationStore()
 
 const switchContainerRef = useTemplateRef('switchContainerRef')
 
 const counter = ref(0)
+const currentIndex = ref(0);
+
+const switchContainerDuration = 1000;
 
 watch(
   () => presentation.currentStep,
@@ -37,20 +44,50 @@ watch(
   <GridArea :columns="12" :rows="8" :show-helper-tiles="config.debug">
     <GridTile
       :corner-top-left="{
-        x: 3,
+        x: 2,
         y: 2,
       }"
       :corner-bottom-right="{
-        x: 10,
+        x: 11,
         y: 7,
       }"
       :show-display="true"
     >
-      <SwitchContainer ref="switchContainerRef" :duration-time="1000">
+      <SwitchContainer @emit-index="(index) => currentIndex = index" ref="switchContainerRef" :duration-time="switchContainerDuration">
         <CardBlock title="Herkömmliche Fronted Entwicklung">
           <h3>Wie funktioniert das webbasierte Frontend?</h3>
+          <p class="opacity-0"> SPACE </p>
+          <template v-if="currentIndex === 0">
+            <AnimatedTextBlock
+              text="&#9679; Was ist HTML?"
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+            <AnimatedTextBlock 
+              text="&#9679; Was ist CSS?"
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+            <AnimatedTextBlock
+              text="&#9679; Was ist Javascript?"
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+            <AnimatedTextBlock
+              text="&#9679; Was ist der DOM?"
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+          </template>
         </CardBlock>
-        <CardBlock title="Was ist HTML?" :debug="config.debug">
+        <CardBlock
+          title="Was ist HTML?"
+          :debug="config.debug"
+        >
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <HTMLHouse></HTMLHouse>
@@ -63,12 +100,13 @@ watch(
             </div>
           </template>
           <template v-slot:bottom>
-            <div class="size-full flex justify-center items-center">
-              <img src="./../assets/images/ExampleHTML.png" alt="html-example-code" />
-            </div>
+            <img class="size-full" src="./../assets/images/ExampleHTML.png" alt="html-example-code" />
           </template>
         </CardBlock>
-        <CardBlock title="Was ist CSS?" :debug="config.debug">
+        <CardBlock
+          title="Was ist CSS?"
+          :debug="config.debug"
+        >
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <CSSHouse></CSSHouse>
@@ -83,12 +121,13 @@ watch(
             </div>
           </template>
           <template v-slot:bottom>
-            <div class="size-full flex justify-center items-center">
-              <img class="size-full" src="./../assets/images/ExampleCSS.png" alt="html-example-code" />
-            </div>
+            <img class="size-full" src="./../assets/images/ExampleCSS.png" alt="css-example-code" />
           </template>
         </CardBlock>
-        <CardBlock title="Was ist Javascript?" :debug="config.debug">
+        <CardBlock
+          title="Was ist Javascript?"
+          :debug="config.debug"
+        >
           <template v-slot:top>
             <div class="size-full flex justify-between gap-2">
               <JavascriptHouse class="h-full"></JavascriptHouse>
@@ -109,15 +148,43 @@ watch(
             </div>
           </template>
           <template v-slot:bottom>
-            <div class="size-full flex justify-center items-center">
-              <img src="./../assets/images/ExampleJS.png" alt="html-example-code" />
-            </div>
+            <img class="size-full" src="./../assets/images/ExampleJS.png" alt="javascript-example-code" />
           </template>
         </CardBlock>
-        <CardBlock title="Was ist der DOM?" :debug="config.debug">
+        <CardBlock
+          title="Was ist der DOM?"
+          extraText="vgl. Wikipedia"
+          :debug="config.debug"
+        >
+          <template v-if="currentIndex === 4">
+            <AnimatedTextBlock
+              text="Beim DOM (Document Object Model) handelt sich um eine Repräsentation der Webseite in Objektform."
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+            <AnimatedTextBlock
+              text="Der DOM ist Programmiersprachen unabhängig aber in der Frontend Entwicklung wird in der Regel"
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+            <AnimatedTextBlock
+              text="mit Javascript der DOM manipuliert und damit auch die Webseite selbst."
+              :transformVal="100"
+              :scale="2"
+              :initDelay="switchContainerDuration - 200"
+            ></AnimatedTextBlock>
+          </template>
           <template v-slot:bottom>
             <div class="size-full flex justify-center items-center">
-              <img class="size-full" src="./../assets/images/dom-tree.png" alt="dom-tree" />
+              <ImageWithRef
+                class="size-full"
+                href="https://de.wikipedia.org/wiki/Document_Object_Model"
+                src="/src/assets/images/dom-tree.png"
+                alt="dom-tree"
+                text="Abb. 5"
+              ></ImageWithRef>
             </div>
           </template>
         </CardBlock>

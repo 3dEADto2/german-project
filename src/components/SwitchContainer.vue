@@ -8,6 +8,10 @@ defineOptions({
   inheritAttrs: false,
 })
 
+const emit = defineEmits<{
+  (e: 'emitIndex', index: number): void
+}>();
+
 const { durationTime } = defineProps<{
   durationTime?: number
 }>()
@@ -49,6 +53,7 @@ const rotateElStatus = (direction?: 'reverse') => {
   setTimeout(() => {
     if (nextElement === undefined) return
     nextElement.status.value = 'shown'
+    emit('emitIndex', nextIndex);
   }, 1)
 
   const shownElement = slotElements.value[shownIndex]
@@ -71,17 +76,13 @@ defineExpose({
     <div
       v-for="(element, index) in slotElements"
       :key="index"
-      class="absolute size-full top-0 transition-all"
+      class="absolute size-full top-0"
       :class="{
-        'opacity-0': element.status.value === 'next' || element.status.value === 'previous',
         hidden: element.status.value === 'hidden',
-        'left-0': element.status.value === 'shown',
-        'left-full': element.status.value === 'previous',
-        '-left-full': element.status.value === 'next',
+        'card-to-animate': element.status.value === 'previous',
       }"
       :style="{
-        '--tw-duration': `${durationTime || 500}ms`,
-        'transition-duration': `${durationTime || 500}ms`,
+        'animation-duration': `${(durationTime || 500) / 1000}s`
       }"
     >
       <component :is="element.element"></component>
@@ -98,3 +99,43 @@ defineExpose({
     </div>
   </div>
 </template>
+
+<style lang="css" scoped>
+.card-to-animate {
+  animation: card-animation ease-in-out forwards;
+}
+
+@keyframes card-animation {
+  0% {
+    z-index: 4;
+  }
+  50% {
+    z-index: 4;
+    transform: translate(-30%, -110%) rotate(-25deg);
+  }
+  51% {
+    z-index: -1;
+  }
+  100% {
+    z-index: -1;
+    transform: translate(0);
+  }
+}
+</style>
+
+<!-- <div
+      v-for="(element, index) in slotElements"
+      :key="index"
+      class="absolute size-full top-0 transition-all"
+      :class="{
+        'opacity-0': element.status.value === 'next' || element.status.value === 'previous',
+        hidden: element.status.value === 'hidden',
+        'left-0': element.status.value === 'shown',
+        'left-full': element.status.value === 'previous',
+        '-left-full': element.status.value === 'next',
+      }"
+      :style="{
+        '--tw-duration': `${durationTime || 500}ms`,
+        'transition-duration': `${durationTime || 500}ms`,
+      }"
+    > -->

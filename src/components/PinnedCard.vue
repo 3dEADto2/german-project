@@ -30,6 +30,7 @@ const { content } = defineProps<{
 }
 
 .paper p {
+  font-weight: bold;
   margin: auto;
 }
 
