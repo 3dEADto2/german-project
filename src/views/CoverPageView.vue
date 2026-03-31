@@ -2,6 +2,11 @@
     import { ref, onBeforeUnmount, onMounted } from 'vue';
     import AnimatedTextBlock from '@/components/AnimatedTextBlock.vue';
 
+    import logoAngularImage from '@/assets/svg/LogoAngular.svg';
+    import logoReactImage from '@/assets/svg/LogoReact.svg';
+    import logoVueImage from '@/assets/svg/LogoVue.svg';
+    import logoSvelteImage from '@/assets/svg/LogoSvelte.svg';
+
     const gallery = ref<HTMLDivElement | null>(null);
     let currGalRotY = 0;
     const displayBlock = ref<HTMLDivElement | null>(null)
@@ -9,22 +14,22 @@
 
     const logosData = [
         {
-            src: '/src/assets/svg/LogoAngular.svg',
+            src: logoAngularImage,
             alt: 'logo-angular',
             text: 'Abb. 1'
         },
         {
-            src: '/src/assets/svg/LogoReact.svg',
+            src: logoReactImage,
             alt: 'logo-react',
             text: 'Abb. 2'
         },
         {
-            src: '/src/assets/svg/LogoVue.svg',
+            src: logoVueImage,
             alt: 'logo-vue',
             text: 'Abb. 3'
         },
         {
-            src: '/src/assets/svg/LogoSvelte.svg',
+            src: logoSvelteImage,
             alt: 'logo-svelte',
             text: 'Abb. 4'
         }

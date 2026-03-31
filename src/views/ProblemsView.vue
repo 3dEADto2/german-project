@@ -13,6 +13,12 @@ import ResetLeft from '@/assets/svg/ResetLeft.vue'
 import Plus from '@/assets/svg/Plus.vue'
 import Minus from '@/assets/svg/Minus.vue'
 import AnimatedTextBlock from '@/components/AnimatedTextBlock.vue'
+import vuePopularLibariesImage from '@/assets/images/VuePopularLibaries.png'
+import exampleServerSideRenderingImage from '@/assets/images/EXAMPLEServerSideRendering.png'
+import exampleVirtualDomImage from '@/assets/images/EXAMPLEVirtualDom.png'
+import jsBrowserCompatibleImage from '@/assets/images/JSBrowserCompatible.png'
+import exampleStandardizedImage from '@/assets/images/ExampleStandardized.png'
+
 const config = useConfigStore()
 
 const fileStorage = ref<{fileType: 'html' | 'css' | 'js', size: number}[]>([]);
@@ -123,7 +129,7 @@ const whatProblemsAreThereTexts = [
               <ImageWithRef
                 class="size-full" 
                 href="https://www.glorywebs.com/blog/vue-component-libraries-frameworks"
-                src="/src/assets/images/VuePopularLibaries.png"
+                :src="vuePopularLibariesImage"
                 alt="vue-popular-libraries"
                 text="Abb. 12"
               ></ImageWithRef>
@@ -159,7 +165,7 @@ const whatProblemsAreThereTexts = [
               <ImageWithRef
                 class="size-full" 
                 href="https://www.arocom.de/en/technical-terms/web-development/browser-compatibility"
-                src="/src/assets/images/EXAMPLEServerSideRendering.png"
+                :src="exampleServerSideRenderingImage"
                 alt="browser-compatibility-example"
                 text="Abb. 9"
               ></ImageWithRef>
@@ -243,7 +249,7 @@ const whatProblemsAreThereTexts = [
               <ImageWithRef
                 class="size-full"
                 href="https://www.sanity.io/glossary/virtual-dom"
-                src="/src/assets/images/EXAMPLEVirtualDom.png"
+                :src="exampleVirtualDomImage"
                 alt="virtual-dom-example"
                 text="Abb. 6"
               ></ImageWithRef>
@@ -282,7 +288,7 @@ const whatProblemsAreThereTexts = [
               <ImageWithRef
                 class="size-full" 
                 href="https://www.arocom.de/en/technical-terms/web-development/browser-compatibility"
-                src="/src/assets/images/JSBrowserCompatible.png"
+                :src="jsBrowserCompatibleImage"
                 alt="browser-compatibility-example"
                 text="Abb. 7"
               ></ImageWithRef>
@@ -315,7 +321,7 @@ const whatProblemsAreThereTexts = [
               <ImageWithRef
                 class="size-full"
                 href="https://angular.dev/style-guide"
-                src="/src/assets/images/ExampleStandardized.png"
+                :src="exampleStandardizedImage"
                 alt="example-standardized"
                 text="Abb. 8"
               ></ImageWithRef>

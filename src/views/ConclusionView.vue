@@ -6,14 +6,10 @@ import CardBlock from '@/components/CardBlock.vue'
 import SwitchContainer from '@/components/SwitchContainer.vue'
 import ImageWithRef from '@/components/ImageWithRef.vue'
 import { useConfigStore } from '@/stores/config'
-import CSSFileLogo from '@/assets/svg/CSSFileLogo.vue'
-import HTMLFileLogo from '@/assets/svg/HTMLFileLogo.vue'
-import JSFileLogo from '@/assets/svg/JSFileLogo.vue'
-import ResetLeft from '@/assets/svg/ResetLeft.vue'
-import Plus from '@/assets/svg/Plus.vue'
-import Minus from '@/assets/svg/Minus.vue'
 import AnimatedTextBlock from '@/components/AnimatedTextBlock.vue'
 import { useModalStore } from './../stores/modal'
+import stackOverflowPopularFrameworksImage from '@/assets/images/StackOverflow2025PopularFrameworks.png'
+import reactTotalUsageImage from '@/assets/images/ReactTotalUsage.png'
 
 const config = useConfigStore()
 const { deploy } = useModalStore();
@@ -72,7 +68,7 @@ const whyDevsShouldUseFrameworksTexts = [
                 props: {
                     class: 'size-full',
                     href: 'https://survey.stackoverflow.co/2025/technology#most-popular-technologies-webframe-webframe',
-                    src: '/src/assets/images/StackOverflow2025PopularFrameworks.png',
+                    src: stackOverflowPopularFrameworksImage,
                     alt: 'chart-popular-web-framworks',
                     text: 'Abb. 10'
                 }
@@ -80,7 +76,7 @@ const whyDevsShouldUseFrameworksTexts = [
                 <ImageWithRef
                     class="size-full" 
                     href="https://survey.stackoverflow.co/2025/technology#most-popular-technologies-webframe-webframe"
-                    src="/src/assets/images/StackOverflow2025PopularFrameworks.png"
+                    :src="stackOverflowPopularFrameworksImage"
                     alt="chart-popular-web-framworks"
                     text="Abb. 10"
                 ></ImageWithRef>
@@ -105,7 +101,7 @@ const whyDevsShouldUseFrameworksTexts = [
                 props: {
                     class: 'size-full',
                     href: 'https://trends.builtwith.com/javascript/React',
-                    src: '/src/assets/images/ReactTotalUsage.png',
+                    src: reactTotalUsageImage,
                     alt: 'react-total-usage',
                     text: 'Abb. 11'
                 }
@@ -113,7 +109,7 @@ const whyDevsShouldUseFrameworksTexts = [
                 <ImageWithRef
                     class="size-full" 
                     href="https://trends.builtwith.com/javascript/React"
-                    src="/src/assets/images/ReactTotalUsage.png"
+                    :src="reactTotalUsageImage"
                     alt="react-total-usage"
                     text="Abb. 11"
                 ></ImageWithRef>
