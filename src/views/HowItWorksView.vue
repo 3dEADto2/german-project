@@ -11,6 +11,7 @@ import HTMLHouse from '@/assets/svg/HTMLHouse.vue'
 import JavascriptHouse from '@/assets/svg/JavascriptHouse.vue'
 import AnimatedTextBlock from '@/components/AnimatedTextBlock.vue'
 import ImageWithRef from '@/components/ImageWithRef.vue'
+import domTreeImage from '@/assets/images/dom-tree.png'
 
 
 const config = useConfigStore()
@@ -181,7 +182,7 @@ watch(
               <ImageWithRef
                 class="size-full"
                 href="https://de.wikipedia.org/wiki/Document_Object_Model"
-                src="/src/assets/images/dom-tree.png"
+                :src="domTreeImage"
                 alt="dom-tree"
                 text="Abb. 5"
               ></ImageWithRef>
