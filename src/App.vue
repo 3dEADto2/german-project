@@ -12,7 +12,6 @@ const showNavBar = ref(false);
 const router = useRouter();
 
 const routeOrder = [
-  'home',
   'cover-page',
   'how-it-works',
   'problems',
@@ -63,9 +62,6 @@ onMounted(() => {
       >
         <nav class="flex gap-2">
           <RouterLink to="/">
-            <NavButton>Home</NavButton>
-          </RouterLink>
-          <RouterLink to="/cover-page">
             <NavButton>Deckblatt</NavButton>
           </RouterLink>
           <RouterLink to="/how-it-works">

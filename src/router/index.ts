@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import HowItWorksView from '@/views/HowItWorksView.vue'
 import ProblemsView from '@/views/ProblemsView.vue'
 import BibliographyView from '@/views/BibliographyView.vue'
@@ -13,8 +12,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
+      name: 'cover-page',
+      component: CoverPageView,
     },
     {
       path: '/how-it-works',
@@ -35,11 +34,6 @@ const router = createRouter({
       path: '/list-of-illustrations',
       name: 'list-of-illustrations',
       component: ListOfIllustrationsView,
-    },
-    {
-      path: '/cover-page',
-      name: 'cover-page',
-      component: CoverPageView
     },
     {
       path: '/conclusion',
